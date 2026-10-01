@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: lender-review-demo
+    runtime: static
+    buildCommand: echo "Static demo ready"
+    staticPublishPath: .

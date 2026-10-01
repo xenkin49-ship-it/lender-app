@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f7f4">
+    <meta name="description" content="Δοκιμαστικό πρωτότυπο χρηματοδότησης ελληνικών επιχειρήσεων. Ελληνική διεπαφή, χωρίς πραγματικές συναλλαγές.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Lender — Ελληνική χρηματοδότηση επιχειρήσεων">
+    <meta property="og:description" content="Δες το ελληνικό πρωτότυπο για επενδυτές και επιχειρήσεις. Μόνο προσομοίωση, χωρίς πραγματικές συναλλαγές.">
+    <meta name="twitter:card" content="summary">
+    <title>Lender — Ελληνική χρηματοδότηση επιχειρήσεων</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#" aria-label="Αρχική σελίδα Lender">
+          <span class="brand-mark" aria-hidden="true">l</span>
+          <span>lender<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="role-switch" role="group" aria-label="Επιλέξτε πώς θέλετε να χρησιμοποιήσετε το Lender">
+          <button class="role-button active" type="button" data-role="lend"><span aria-hidden="true">↗</span><span><strong data-i18n="roleLend">Θέλω να επενδύσω</strong><small data-i18n="roleLendHint">Στήριξη ελληνικών επιχειρήσεων</small></span></button>
+          <button class="role-button" type="button" data-role="borrow"><span aria-hidden="true">↓</span><span><strong data-i18n="roleBorrow">Χρειάζομαι χρηματοδότηση</strong><small data-i18n="roleBorrowHint">Υποβολή αιτήματος νεοφυούς επιχείρησης</small></span></button>
+        </div>
+        <div class="workspace-label" id="workspace-label" data-i18n="lenderWorkspace">ΧΩΡΟΣ ΕΠΕΝΔΥΤΗ</div>
+        <nav class="main-nav" id="lender-nav" aria-label="Πλοήγηση επενδυτή">
+          <button class="nav-link active" data-view="overview"><span aria-hidden="true">▦</span><span data-i18n="overview">Επισκόπηση</span></button>
+          <button class="nav-link" data-view="investments"><span aria-hidden="true">◈</span><span data-i18n="startups">Νεοφυείς επιχειρήσεις</span></button>
+          <button class="nav-link" data-view="business-loans"><span aria-hidden="true">⌂</span><span data-i18n="startupLoans">Χρηματοδότηση νεοφυών επιχειρήσεων</span></button>
+          <button class="nav-link" data-view="requests"><span aria-hidden="true">▤</span><span data-i18n="portfolio">Το χαρτοφυλάκιό μου</span></button>
+          <button class="nav-link" data-view="secondary-market"><span aria-hidden="true">⇄</span><span data-i18n="secondaryNav">Αγορά δανείων</span></button>
+          <button class="nav-link" data-view="tax"><span aria-hidden="true">▧</span><span data-i18n="taxStatements">Φορολογικά στοιχεία</span></button>
+          <button class="nav-link" data-view="legal"><span aria-hidden="true">§</span><span data-i18n="legalRisk">Νομικά &amp; κίνδυνοι</span></button>
+        </nav>
+        <nav class="main-nav hidden" id="borrower-nav" aria-label="Πλοήγηση επιχείρησης">
+          <button class="nav-link active" data-view="borrower-home"><span aria-hidden="true">▦</span><span data-i18n="businessHome">Χώρος επιχείρησης</span></button>
+          <button class="nav-link" data-view="borrower-requests"><span aria-hidden="true">▤</span><span data-i18n="myRequests">Τα αιτήματά μου</span></button>
+          <button class="nav-link" data-view="legal"><span aria-hidden="true">§</span><span data-i18n="legalRisk">Νομικά &amp; κίνδυνοι</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <span class="help-icon" aria-hidden="true">✳</span>
+            <strong data-i18n="helpHeadline">Η ανάπτυξη είναι καλύτερη μαζί.</strong>
+            <p data-i18n="helpText">Χρηματοδότηση με διαφάνεια και ανθρώπινη προσέγγιση.</p>
+            <button class="help-link" type="button" data-open-support><span data-i18n="greekSupport">Υποστήριξη στα Ελληνικά</span> <span aria-hidden="true">→</span></button>
+          </div>
+          <button class="profile-button" type="button">
+            <span class="avatar avatar-profile">JD</span>
+            <span class="profile-copy"><strong>Δοκιμαστικός χρήστης</strong><small data-i18n="demoAccount">Δοκιμαστικός λογαριασμός</small></span>
+            <span class="profile-more" aria-hidden="true">···</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="mobile-brand"><span class="brand-mark" aria-hidden="true">l</span> lender<span class="brand-period">.</span></div>
+          <div class="breadcrumb"><span data-i18n="workspace">Χώρος εργασίας</span><span aria-hidden="true">/</span><strong id="page-label">Επισκόπηση</strong></div>
+          <div class="topbar-actions">
+            <span class="demo-pill" id="backend-status" role="status" aria-live="polite"><span></span><span>Σύνδεση με τοπική βάση…</span></span>
+            <button class="icon-button" id="support-button" type="button" data-open-support aria-label="Υποστήριξη στα Ελληνικά">?</button>
+            <button class="icon-button notification-button" type="button" aria-label="Ειδοποιήσεις">♧<i></i></button>
+          </div>
+        </header>
+
+        <section class="page-view" id="overview-view">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow" data-i18n="dateToday">ΕΛΛΑΔΑ · ΧΡΗΜΑΤΟΔΟΤΗΣΗ ΝΕΟΦΥΩΝ ΕΠΙΧΕΙΡΗΣΕΩΝ</p>
+              <h1 data-i18n="overviewTitle">Καλημέρα, επενδυτή <span aria-hidden="true">✳</span></h1>
+              <p class="subheading" data-i18n="overviewSubtitle">Στήριξε ελληνικές νεοφυείς επιχειρήσεις με διαφανείς όρους.</p>
+            </div>
+            <span class="role-context"><span class="role-context-dot"></span><span data-i18n="lenderContext">Επενδυτής · Ανακάλυψε ελληνικές επιχειρήσεις</span></span>
+          </div>
+
+          <div class="summary-grid">
+            <article class="summary-card balance-card">
+              <div class="card-heading"><span data-i18n="returnsEarned">ΑΠΟΔΟΣΕΙΣ</span><span class="small-icon" aria-hidden="true">↗</span></div>
+              <div class="balance-amount" id="returns-total">684<span>,20 €</span></div>
+              <div class="balance-note"><span class="positive">↑ 8,2%</span> <span data-i18n="illustrativeReturns">ενδεικτικές αποδόσεις φέτος</span></div>
+              <div class="balance-chart" aria-label="Ενδεικτική πορεία αποδόσεων των τελευταίων επτά μηνών">
+                <svg viewBox="0 0 520 66" role="img" aria-labelledby="returns-chart-title">
+                  <title id="returns-chart-title">Ενδεικτική πορεία αποδόσεων από τον Απρίλιο έως τον Οκτώβριο</title>
+                  <defs><linearGradient id="chart-fill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#c5ed80" stop-opacity=".4"/><stop offset="100%" stop-color="#c5ed80" stop-opacity="0"/></linearGradient></defs>
+                  <path class="chart-area" d="M0 53 C25 48 34 51 55 42 S91 46 111 34 S149 39 170 30 S204 33 226 25 S265 30 285 20 S321 27 342 17 S375 23 395 13 S431 21 451 9 S485 15 520 2 V66 H0Z"/>
+                  <path class="chart-line" d="M0 53 C25 48 34 51 55 42 S91 46 111 34 S149 39 170 30 S204 33 226 25 S265 30 285 20 S321 27 342 17 S375 23 395 13 S431 21 451 9 S485 15 520 2"/>
+                </svg>
+              </div>
+              <div class="chart-months"><span>ΑΠΡ</span><span>ΜΑΙ</span><span>ΙΟΥΝ</span><span>ΙΟΥΛ</span><span>ΑΥΓ</span><span>ΣΕΠ</span><span>ΟΚΤ</span></div>
+            </article>
+            <article class="summary-card">
+              <div class="card-heading"><span data-i18n="activeDeals">ΕΝΕΡΓΑ ΕΡΓΑ</span><span class="metric-icon peach" aria-hidden="true">↗</span></div>
+              <div class="metric-value" id="active-count">08</div>
+              <p class="metric-caption" data-i18n="activeCaption">Σε 6 ελληνικές επιχειρήσεις</p>
+              <div class="metric-foot"><span class="mini-dot"></span> <span data-i18n="diversified">Διαφοροποιημένο χαρτοφυλάκιο</span></div>
+            </article>
+            <article class="summary-card">
+              <div class="card-heading"><span data-i18n="totalInvested">ΣΥΝΟΛΙΚΗ ΕΠΕΝΔΥΣΗ</span><span class="metric-icon lilac" aria-hidden="true">⌁</span></div>
+              <div class="metric-value" id="balance-total">12.450<span>,00 €</span></div>
+              <p class="metric-caption" data-i18n="portfolioCaption">Στο δοκιμαστικό χαρτοφυλάκιό σου</p>
+              <div class="metric-foot"><span class="positive">↗</span> <span data-i18n="p2bOnly">Χρηματοδότηση ελληνικών επιχειρήσεων</span></div>
+            </article>
+          </div>
+
+          <div class="section-heading">
+            <div><p class="eyebrow" data-i18n="curated">ΕΠΙΛΕΓΜΕΝΕΣ ΕΠΙΧΕΙΡΗΣΕΙΣ</p><h2 data-i18n="findOpportunity">Βρες την επόμενη ευκαιρία</h2></div>
+            <button class="text-button" type="button" data-view="investments"><span data-i18n="exploreProjects">Δες επιχειρήσεις</span> <span aria-hidden="true">→</span></button>
+          </div>
+
+          <aside class="impact-banner"><div><p class="eyebrow" data-i18n="doubleBottomLine">ΚΕΡΔΟΣ &amp; ΤΟΠΙΚΟΣ ΑΝΤΙΚΤΥΠΟΣ</p><h2 data-i18n="doubleBottomTitle">Στήριξε επιχειρήσεις που δίνουν ζωή στην τοπική οικονομία.</h2><p data-i18n="doubleBottomText">Δες τον σκοπό κάθε αιτήματος και τις διαθέσιμες πληροφορίες. Η κοινωνική αξία και η οικονομική απόδοση είναι διαφορετικά πράγματα· κανένα από τα δύο δεν είναι εγγυημένο.</p></div><span class="impact-mark" aria-hidden="true">✳</span></aside>
+          <section class="panel auto-invest-panel">
+            <div class="section-heading"><div><p class="eyebrow">ΚΑΝΟΝΕΣ ΧΑΡΤΟΦΥΛΑΚΙΟΥ</p><h2>Αυτόματη επένδυση · προσομοίωση</h2><p class="subheading">Όρισε κλάδο, ελάχιστο επιτόκιο και ποσό για δοκιμαστικά έργα.</p></div></div>
+            <form id="auto-invest-form" class="auto-invest-form">
+              <label class="auto-field"><span>Κλάδος</span><select class="text-input" name="sector" required><option value="real-estate">Ακίνητα &amp; τουρισμός</option><option value="green">Πράσινη ενέργεια &amp; γεωργία</option><option value="local">Τοπικό εμπόριο &amp; καινοτομία</option><option value="tech">Τεχνολογία &amp; νεοφυείς επιχειρήσεις</option></select></label>
+              <label class="auto-field"><span>Ελάχιστο ετήσιο επιτόκιο (%)</span><input class="text-input" name="minRate" type="number" min="1" max="35" step="0.1" value="8" required></label>
+              <label class="auto-field"><span>Ποσό ανά έργο (€)</span><input class="text-input" name="amount" type="number" min="20" max="5000" step="20" value="20" required></label>
+              <button class="button button-dark" type="submit">Αποθήκευση κανόνα</button>
+            </form>
+            <div id="auto-invest-rules" class="auto-invest-rules" aria-live="polite"></div>
+            <p class="disclaimer">Οι κανόνες αποθηκεύονται μόνο σε αυτό το πρόγραμμα περιήγησης. Η προσομοίωση εκτελείται μόνο με δικό σου κλικ και αφορά τις υπάρχουσες δοκιμαστικές καταχωρίσεις· δεν παρακολουθεί νέα έργα. Δεν μεταφέρονται χρήματα και δεν υπάρχει σύνδεση λογαριασμού, πληρωμών ή διακομιστή.</p>
+          </section>
+          <div class="opportunity-grid" id="overview-opportunities"></div>
+          <p class="disclaimer" data-i18n="illustrativeFigures">Τα ποσά και οι αποδόσεις είναι ενδεικτικά δοκιμαστικά στοιχεία — όχι πρόβλεψη, υπόσχεση ή προσφορά.</p>
+
+          <div class="lower-grid">
+            <section class="panel activity-panel">
+              <div class="panel-heading"><div><p class="eyebrow" data-i18n="yourPortfolio">ΤΟ ΧΑΡΤΟΦΥΛΑΚΙΟ ΣΟΥ</p><h2 data-i18n="recentActivity">Πρόσφατη δραστηριότητα</h2></div><button class="quiet-button" type="button" data-view="requests"><span data-i18n="viewPortfolio">Προβολή</span> <span aria-hidden="true">→</span></button></div>
+              <div class="activity-list">
+                <div class="activity-item"><span class="activity-avatar sage">Φ</span><span class="activity-copy"><strong>Ενδεικτική αποπληρωμή</strong><small>Φούρνος Θεσσαλονίκης · σήμερα</small></span><span class="activity-amount">+125,00 €</span></div>
+                <div class="activity-item"><span class="activity-avatar peach">Κ</span><span class="activity-copy"><strong>Ενδεικτική επένδυση</strong><small>Καρπός · 28 Σεπ</small></span><span class="activity-amount negative">−250,00 €</span></div>
+                <div class="activity-item"><span class="activity-avatar blue">Ν</span><span class="activity-copy"><strong>Ενδεικτική αποπληρωμή</strong><small>Ηλιόλουστα Δωμάτια Νάξου · 25 Σεπ</small></span><span class="activity-amount">+84,50 €</span></div>
+              </div>
+            </section>
+            <section class="quote-card" id="how-it-works">
+              <span class="quote-mark" aria-hidden="true">“</span>
+              <blockquote data-i18n="quote">Όταν κάποιος πιστεύει στην επιχείρησή σου, μπορεί να αλλάξει τα πάντα.</blockquote>
+              <div class="quote-person"><span class="avatar avatar-quote">ΜΛ</span><span><strong>Μαρία Λ.</strong><small data-i18n="startupFounder">Ιδρύτρια νεοφυούς επιχείρησης</small></span></div>
+              <span class="quote-decoration" aria-hidden="true">✳</span>
+            </section>
+          </div>
+          <footer class="disclaimer" data-i18n="demoDisclaimer">Το Lender είναι δοκιμαστικό πρωτότυπο. Τα στοιχεία είναι ενδεικτικά και δεν αποτελούν πραγματική προσφορά.</footer>
+        </section>
+
+        <section class="page-view hidden" id="borrower-home-view">
+          <div class="welcome-row">
+            <div><p class="eyebrow" data-i18n="businessHome">Χώρος επιχείρησης</p><h1 data-i18n="borrowerPageTitle">Χρηματοδότηση με τους δικούς σου όρους.</h1><p class="subheading" data-i18n="borrowerPageIntro">Δημιούργησε αίτημα, αξιολόγησε προσφορές και προχώρησε με τη στήριξη της κοινότητας.</p></div>
+          </div>
+          <section class="borrower-welcome panel">
+            <div><span class="borrower-welcome-icon" aria-hidden="true">✳</span><p class="eyebrow" data-i18n="borrowerNextStep">ΤΟ ΕΠΟΜΕΝΟ ΒΗΜΑ</p><h2 data-i18n="borrowerPlanTitle">Κάνε μια καλή ιδέα χρηματοδοτήσιμο σχέδιο.</h2><p data-i18n="borrowerPlanText">Όρισε ποσό, διάρκεια και επιτόκιο. Πολλοί επενδυτές μπορούν να καλύψουν διαφορετικά μέρη του αιτήματος.</p><button class="button button-dark" type="button" data-open-request data-i18n="borrowerCreateRequest">Δημιουργία αιτήματος νεοφυούς επιχείρησης</button></div>
+            <div class="borrower-flow"><div><span>01</span><p><strong data-i18n="stepShareRequest">Παρουσίασε το αίτημά σου</strong><small data-i18n="stepShareHint">Για ελληνική νεοφυή επιχείρηση ή επιχείρηση.</small></p></div><div><span>02</span><p><strong data-i18n="stepReviewOffers">Σύγκρινε προσφορές</strong><small data-i18n="stepReviewHint">Έλεγξε ποσό, επιτόκιο και διάρκεια.</small></p></div><div><span>03</span><p><strong data-i18n="stepBuildFunding">Χτίσε τη χρηματοδότηση</strong><small data-i18n="stepBuildHint">Πολλοί μπορούν να συνεισφέρουν τμηματικά.</small></p></div></div>
+          </section>
+          <p class="risk-notice liquidity-notice">Η υποβολή είναι δοκιμαστική. Δεν συνδεόμαστε με τράπεζες ή φορολογικά συστήματα, δεν επαληθεύουμε αυτόματα στοιχεία και δεν υποσχόμαστε έγκριση ή εκταμίευση σε συγκεκριμένο χρόνο. Για πραγματική αξιολόγηση απαιτούνται νόμιμη διαδικασία, συγκατάθεση και συνεργασίες με αδειοδοτημένους παρόχους.</p>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="borrowerRequestsEyebrow">ΤΑ ΑΙΤΗΜΑΤΑ ΣΟΥ</p><h2 data-i18n="borrowerProgressTitle">Η πρόοδος με μια ματιά</h2></div><button class="text-button" type="button" data-view="borrower-requests"><span data-i18n="borrowerViewRequests">Αιτήματα &amp; προσφορές</span> <span aria-hidden="true">→</span></button></div>
+          <div class="request-list" id="borrower-home-list"></div>
+        </section>
+
+        <section class="page-view hidden" id="investments-view">
+          <div class="welcome-row marketplace-title"><div><p class="eyebrow" data-i18n="localProjects">ΕΠΙΧΕΙΡΗΣΕΙΣ ΣΤΗΝ ΕΛΛΑΔΑ</p><h1 data-i18n="startupTitle">Στήριξε μια ελληνική νεοφυή επιχείρηση.</h1><p class="subheading" data-i18n="startupSubtitle">Δες πού πηγαίνει η χρηματοδότησή σου και τι προσφέρει κάθε έργο.</p></div></div>
+          <p class="risk-notice"><strong data-i18n="p2b">Χρηματοδότηση από ιδιώτες προς επιχειρήσεις.</strong> <span data-i18n="equityCaveat">Η συμμετοχή σε μετοχικό κεφάλαιο έχει κίνδυνο απώλειας, αραίωσης και έλλειψης ρευστότητας. Οι δοκιμαστικές προσφορές δεν εκδίδουν μετοχές.</span></p>
+          <p class="risk-notice liquidity-notice" data-i18n="illiquidDisclosure">Τα επιχειρηματικά δάνεια είναι μη ρευστά. Δεν υπάρχει δευτερογενής αγορά ή δυνατότητα πρόωρης εξόδου σε αυτό το πρωτότυπο.</p>
+          <div class="sector-filters" role="group" aria-label="Φίλτρο κλάδου">
+            <button class="sector-filter active" type="button" data-sector="all" aria-pressed="true" data-i18n="sectorAll">Όλοι οι κλάδοι</button>
+            <button class="sector-filter" type="button" data-sector="real-estate" aria-pressed="false" data-i18n="sectorRealEstate">Ακίνητα &amp; τουρισμός</button>
+            <button class="sector-filter" type="button" data-sector="green" aria-pressed="false" data-i18n="sectorGreen">Πράσινη ενέργεια &amp; γεωργία</button>
+            <button class="sector-filter" type="button" data-sector="local" aria-pressed="false" data-i18n="sectorLocal">Τοπικό εμπόριο &amp; καινοτομία</button>
+            <button class="sector-filter" type="button" data-sector="tech" aria-pressed="false" data-i18n="sectorTech">Τεχνολογία &amp; νεοφυείς επιχειρήσεις</button>
+          </div>
+          <label class="search-box marketplace-search"><span aria-hidden="true">⌕</span><input id="investment-search" type="search" data-i18n-placeholder="searchBusinesses" placeholder="Αναζήτηση ελληνικών επιχειρήσεων" aria-label="Αναζήτηση ελληνικών επιχειρήσεων"></label>
+          <div class="marketplace-grid" id="investment-listings"></div>
+          <footer class="disclaimer" data-i18n="equityDisclaimer">Ενδεικτικά έργα. Τα ποσοστά δεν αποτελούν πραγματική προσφορά κινητών αξιών.</footer>
+        </section>
+
+        <section class="page-view hidden" id="business-loans-view">
+          <div class="welcome-row marketplace-title"><div><p class="eyebrow" data-i18n="fundAStartup">ΧΡΗΜΑΤΟΔΟΤΗΣΕ ΜΙΑ ΕΠΙΧΕΙΡΗΣΗ</p><h1 data-i18n="businessLoanTitle">Αιτήματα χρηματοδότησης νεοφυών επιχειρήσεων.</h1><p class="subheading" data-i18n="loanSubtitle">Για ελληνικές επιχειρήσεις που αναζητούν €10.000–€50.000.</p></div></div>
+          <p class="risk-notice"><strong data-i18n="riskCaveatStrong">Η εκτίμηση κινδύνου είναι ενδεικτική — όχι απόφαση πίστωσης.</strong> <span data-i18n="riskCaveat">Δες τα δεδομένα και τους περιορισμούς κάθε έργου πριν αξιολογήσεις μια προσφορά.</span></p>
+          <p class="risk-notice fee-notice"><strong>Δοκιμαστικές χρεώσεις δανείων: 2% ανά πλευρά.</strong> Ο επενδυτής πληρώνει επιπλέον 2% επί της συνεισφοράς του. Από το ποσό που θα λάβει η επιχείρηση αφαιρείται προμήθεια 2% επί του συνολικού δανείου. Οι χρεώσεις είναι ενδεικτικές και δεν εκτελούνται.</p>
+          <p class="risk-notice liquidity-notice" data-i18n="illiquidDisclosure">Τα επιχειρηματικά δάνεια είναι μη ρευστά. Δεν υπάρχει δευτερογενής αγορά ή δυνατότητα πρόωρης εξόδου σε αυτό το πρωτότυπο.</p>
+          <p class="sector-intro" data-i18n="sectorIntro">Επίλεξε τους κλάδους που σε ενδιαφέρουν. Ο κλάδος από μόνος του δεν εγγυάται ασφάλεια ή απόδοση.</p>
+          <div class="sector-filters" role="group" aria-label="Φίλτρο κλάδου">
+            <button class="sector-filter active" type="button" data-sector="all" aria-pressed="true" data-i18n="sectorAll">Όλοι οι κλάδοι</button>
+            <button class="sector-filter" type="button" data-sector="real-estate" aria-pressed="false" data-i18n="sectorRealEstate">Ακίνητα &amp; τουρισμός</button>
+            <button class="sector-filter" type="button" data-sector="green" aria-pressed="false" data-i18n="sectorGreen">Πράσινη ενέργεια &amp; γεωργία</button>
+            <button class="sector-filter" type="button" data-sector="local" aria-pressed="false" data-i18n="sectorLocal">Τοπικό εμπόριο &amp; καινοτομία</button>
+            <button class="sector-filter" type="button" data-sector="tech" aria-pressed="false" data-i18n="sectorTech">Τεχνολογία &amp; νεοφυείς επιχειρήσεις</button>
+          </div>
+          <label class="search-box marketplace-search"><span aria-hidden="true">⌕</span><input id="business-search" type="search" data-i18n-placeholder="searchProjects" placeholder="Αναζήτηση επιχείρησης ή έργου" aria-label="Αναζήτηση επιχείρησης ή έργου"></label>
+          <div class="marketplace-grid" id="business-listings"></div>
+        </section>
+
+        <section class="page-view hidden" id="requests-view">
+          <div class="welcome-row">
+            <div><p class="eyebrow" data-i18n="lenderWorkspace">ΧΩΡΟΣ ΕΠΕΝΔΥΤΗ</p><h1 data-i18n="lenderPortfolioTitle">Το χαρτοφυλάκιό σου.</h1><p class="subheading" data-i18n="lenderPortfolioIntro">Παρακολούθησε τις συνεισφορές και τις προσφορές σου.</p></div>
+          </div>
+          <div class="section-heading requests-heading"><div><p class="eyebrow" data-i18n="yourContributions">ΟΙ ΣΥΝΕΙΣΦΟΡΕΣ ΣΟΥ</p><h2 data-i18n="supportedBusinesses">Επιχειρήσεις που στηρίζεις</h2></div></div>
+          <div id="lender-contributions" class="request-list"></div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="ownedPositions">ΜΕΡΙΔΙΑ ΔΑΝΕΙΩΝ</p><h2 data-i18n="positionsTitle">Οι συμμετοχές σου</h2></div></div>
+          <div id="lender-positions" class="request-list"></div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="yourOffers">ΟΙ ΠΡΟΣΦΟΡΕΣ ΣΟΥ</p><h2 data-i18n="counterOffers">Προσφορές και αντιπροτάσεις</h2></div></div>
+          <div id="lender-offers" class="request-list"></div>
+          <footer class="disclaimer" data-i18n="simulatedContributions">Οι συνεισφορές είναι δοκιμαστικές και δεν μεταφέρουν χρήματα ούτε δημιουργούν πραγματική σύμβαση.</footer>
+        </section>
+
+        <section class="page-view hidden" id="secondary-market-view">
+          <div class="welcome-row"><div><p class="eyebrow" data-i18n="secondaryEyebrow">ΔΕΥΤΕΡΟΓΕΝΗΣ ΑΓΟΡΑ · DEMO</p><h1 data-i18n="secondaryTitle">Αγορά και πώληση μεριδίων δανείων.</h1><p class="subheading" data-i18n="secondaryIntro">Δες διαθέσιμες αγγελίες ή βάλε προς πώληση μέρος της συμμετοχής σου.</p></div></div>
+          <p class="risk-notice liquidity-notice"><strong data-i18n="secondaryRiskTitle">Η πώληση δεν είναι εγγυημένη.</strong> <span data-i18n="secondaryRiskText">Μπορεί να μην υπάρχει αγοραστής. Η τιμή μπορεί να είναι χαμηλότερη από το ανεξόφλητο κεφάλαιο. Το πρωτότυπο προσομοιώνει μεταβίβαση, όχι πραγματική συναλλαγή, χρηματοδότηση ή νομικά εκτελεστό δικαίωμα.</span></p>
+          <div id="secondary-listings" class="request-list"></div>
+          <footer class="disclaimer" data-i18n="secondaryDisclaimer">Οι αγγελίες είναι ενδεικτικές. Καμία εξασφάλιση, προεξόφληση, αγοραστής ή έξοδος δεν είναι εγγυημένα.</footer>
+        </section>
+
+        <section class="page-view hidden" id="borrower-requests-view">
+          <div class="welcome-row"><div><p class="eyebrow" data-i18n="businessHome">ΧΩΡΟΣ ΕΠΙΧΕΙΡΗΣΗΣ</p><h1 data-i18n="borrowerWorkspaceTitle">Τα αιτήματα και οι προσφορές σου.</h1><p class="subheading" data-i18n="borrowerWorkspaceIntro">Παρακολούθησε συνεισφορές και απάντησε στους όρους επενδυτών.</p></div><button class="button button-dark" type="button" data-open-request data-i18n="newRequest">Νέο αίτημα</button></div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="fundingRequests">ΑΙΤΗΜΑΤΑ ΧΡΗΜΑΤΟΔΟΤΗΣΗΣ</p><h2 data-i18n="yourRequests">Τα αιτήματά σου</h2></div></div>
+          <div class="request-list" id="borrower-request-list"></div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="investorResponses">ΑΠΑΝΤΗΣΕΙΣ ΕΠΕΝΔΥΤΩΝ</p><h2 data-i18n="offersToReview">Προσφορές για αξιολόγηση</h2></div></div>
+          <div class="request-list" id="borrower-offer-list"></div>
+          <footer class="disclaimer" data-i18n="demoOfferDisclaimer">Οι προσφορές είναι δοκιμαστικές. Η αποδοχή δεν δημιουργεί δεσμευτική συμφωνία ούτε μεταφέρει χρήματα.</footer>
+        </section>
+
+        <section class="page-view hidden" id="legal-view">
+          <div class="welcome-row"><div><p class="eyebrow">ΓΕΝΙΚΗ ΕΝΗΜΕΡΩΣΗ · ΟΧΙ ΝΟΜΙΚΗ ΣΥΜΒΟΥΛΗ</p><h1>Σχεδίασε για εμπιστοσύνη — και για δυσκολίες.</h1><p class="subheading">Πρακτική αφετηρία για μια πραγματική υπηρεσία χρηματοδότησης επιχειρήσεων.</p></div></div>
+          <p class="risk-notice"><strong>Δεν υπάρχει ενιαίος κατάλογος συμμόρφωσης.</strong> Το ECSPR μπορεί να αφορά ορισμένες υπηρεσίες επιχειρηματικής χρηματοδότησης ή επενδυτικού crowdfunding, αλλά δεν καλύπτει κάθε μοντέλο. Η καταναλωτική πίστη διέπεται από ξεχωριστούς κανόνες. Η αδειοδότηση σε άλλο κράτος της ΕΕ δεν παρακάμπτει αυτομάτως τις ελληνικές υποχρεώσεις. Απαιτείται εξειδικευμένη νομική αξιολόγηση πριν από προσφορές, διαμεσολάβηση ή διαχείριση πραγματικών συναλλαγών.</p>
+          <div class="legal-grid">
+            <article class="panel legal-card failure-card"><span class="legal-number">01</span><p class="eyebrow" data-i18n="creditRiskEyebrow">ΠΙΣΤΩΤΙΚΟΣ ΚΙΝΔΥΝΟΣ</p><h2 data-i18n="adverseSelection">Επιλογή δυσμενών κινδύνων</h2><p data-i18n="adverseSelectionText">Αιτούντες που απορρίφθηκαν αλλού μπορεί να έχουν αυξημένο πιστωτικό κίνδυνο. Χρειάζονται επαληθευμένα οικονομικά στοιχεία, σαφή κριτήρια, ανεξάρτητος έλεγχος και παρακολούθηση συγκεντρώσεων.</p></article>
+            <article class="panel legal-card failure-card"><span class="legal-number">02</span><p class="eyebrow" data-i18n="recoveryRiskEyebrow">ΛΕΙΤΟΥΡΓΙΚΟΣ ΚΙΝΔΥΝΟΣ</p><h2 data-i18n="recoveryRisk">Ανάκτηση οφειλών &amp; αθέτηση</h2><p data-i18n="recoveryRiskText">Η διαχείριση καθυστερήσεων, εξωδίκων, εταιρειών είσπραξης και δικαστικών ενεργειών κοστίζει χρόνο και χρήμα. Σε μοντέλο χαμηλής προμήθειας, μία δύσκολη ανάκτηση μπορεί να απορροφήσει τα έσοδα πολλών κανονικών δανείων. Χρειάζονται νόμιμος υπεύθυνος διαχείρισης, διαδικασία και προϋπολογισμός ανάκτησης πριν από την έναρξη.</p></article>
+            <article class="panel legal-card failure-card"><span class="legal-number">03</span><p class="eyebrow" data-i18n="liquidityRiskEyebrow">ΚΙΝΔΥΝΟΣ ΡΕΥΣΤΟΤΗΤΑΣ</p><h2 data-i18n="liquidityRisk">Κλείδωμα κεφαλαίου</h2><p data-i18n="liquidityRiskText">Οι επενδυτές μπορεί να μην μπορούν να πουλήσουν ή να αποσύρουν κεφάλαια πριν από την αποπληρωμή. Παύσεις πληρωμών και έλλειψη δευτερογενούς αγοράς μπορούν να εντείνουν τις πιέσεις.</p></article>
+            <article class="panel legal-card failure-card"><span class="legal-number">04</span><p class="eyebrow" data-i18n="regulatoryRiskEyebrow">ΡΥΘΜΙΣΤΙΚΟΣ ΚΙΝΔΥΝΟΣ</p><h2 data-i18n="regulatoryRisk">Αδειοδότηση &amp; προστασία χρημάτων</h2><p data-i18n="regulatoryRiskText">Ξένος συνεργάτης ή BaaS πάροχος δεν νομιμοποιεί αυτομάτως τη δραστηριότητα στην Ελλάδα. Απαιτούνται επιβεβαιωμένη αδειοδότηση, passporting όπου εφαρμόζεται, φύλαξη χρημάτων και σχέδιο συνέχειας. Διακοπή συνεργασίας ή δέσμευση λογαριασμών είναι σενάρια που πρέπει να καλύπτει το σχέδιο έκτακτης ανάγκης.</p></article>
+            <article class="panel legal-card"><span class="legal-number">01</span><p class="eyebrow">ΑΝ ΧΑΘΕΙ ΜΙΑ ΠΛΗΡΩΜΗ</p><h2>Η αθέτηση είναι διαδικασία, όχι κουμπί.</h2><ol><li>Έλεγξε τη σύμβαση, το ιστορικό πληρωμών, την περίοδο χάριτος, τις ειδοποιήσεις και τα δικαιώματα θεραπείας.</li><li>Επικοινώνησε νόμιμα και τεκμηριωμένα, χωρίς παρενόχληση· διόρθωσε σφάλματα εξυπηρέτησης και εξέτασε συναινετική ρύθμιση.</li><li>Προχώρησε μόνο σε νόμιμα μέτρα. Εκτελεστότητα, τόκοι, τέλη, εξασφαλίσεις, παραγραφή και δικαστική διαδικασία διαφέρουν.</li><li>Κατέγραψε αποφάσεις και εφάρμοσε σταθερά διαδικασίες δυσκολίας, παραπόνων, ιδιωτικότητας και δίκαιης μεταχείρισης.</li></ol><p class="legal-callout">Μην απειλείς, εκθέτεις δημόσια, κατάσχεις περιουσία, χρεώνεις λογαριασμούς ή αναφέρεις οφειλή χωρίς νόμιμη βάση και διαδικασία που έχει επιβεβαιώσει ειδικός.</p></article>
+            <article class="panel legal-card"><span class="legal-number">02</span><p class="eyebrow">ΠΡΙΝ ΑΠΟ ΤΗΝ ΕΝΑΡΞΗ</p><h2>Χαρτογράφησε τις υποχρεώσεις του προϊόντος.</h2><ul><li><strong>Χρηματοδότηση:</strong> άδειες δανειστή/διαμεσολαβητή/διαχειριστή, όρια επιτοκίων και τελών, γνωστοποιήσεις, συμβάσεις, εισπράξεις και παράπονα.</li><li><strong>Δίκαιη μεταχείριση:</strong> απαγόρευση διακρίσεων, προσβασιμότητα, αιτιολόγηση αποφάσεων και ανθρώπινος έλεγχος.</li><li><strong>Ταυτοποίηση και χρήματα:</strong> KYC/AML, κυρώσεις, φύλαξη χρημάτων πελατών, άδειες πληρωμών και έλεγχοι απάτης.</li><li><strong>Συμμετοχή:</strong> κανόνες κινητών αξιών, επιλεξιμότητα επενδυτών, γνωστοποιήσεις, δικαιώματα μετόχων και αραίωση.</li><li><strong>Δεδομένα:</strong> ιδιωτικότητα, νόμιμη χρήση, διατήρηση/διαγραφή, περιστατικά και διασυνοριακές μεταφορές.</li><li><strong>Φορολογία:</strong> τόκοι, ζημίες, διανομές και ενημέρωση επενδυτών.</li></ul></article>
+            <article class="panel legal-card"><span class="legal-number">03</span><p class="eyebrow">ΔΙΑΚΥΒΕΡΝΗΣΗ ΕΚΤΙΜΗΣΗΣ ΚΙΝΔΥΝΟΥ</p><h2>Μην αφήνεις μια βαθμολογία να αποφασίζει μόνη.</h2><ul><li>Χρησιμοποίησε μόνο νόμιμα, αναγκαία και ακριβή στοιχεία· έλεγξε προέλευση και δυνατότητα διόρθωσης.</li><li>Επικύρωσε αντιπροσωπευτικά αποτελέσματα, σφάλματα, μετατόπιση μοντέλου και άνισες επιπτώσεις.</li><li>Εξήγησε παράγοντες και αβεβαιότητα· κατέγραψε εκδόσεις, εξαιρέσεις, ενστάσεις και ανθρώπινο έλεγχο.</li><li>Προστάτευσε ευαίσθητα αρχεία και μην συνάγεις προστατευόμενα χαρακτηριστικά.</li><li>Κράτησε τις βαθμολογίες συμβουλευτικές μέχρι να εγκριθεί η συγκεκριμένη χρήση από ειδικούς.</li></ul></article>
+            <article class="panel legal-card"><span class="legal-number">04</span><p class="eyebrow">ΕΡΩΤΗΣΕΙΣ ΠΡΟΣ ΝΟΜΙΚΟΥΣ</p><h2>Καθόρισε το λειτουργικό μοντέλο.</h2><p>Πού βρίσκονται τα μέρη; Είναι το προϊόν δάνειο, τίτλος ή και τα δύο; Ποιος κρατά και μεταφέρει χρήματα; Ποιος εξυπηρετεί και εισπράττει; Ποιες άδειες, γνωστοποιήσεις, διασφαλίσεις και υποχρεώσεις αναφοράς ισχύουν; Τι γίνεται σε αθέτηση, αφερεγγυότητα, διαφορά ή διακοπή λειτουργίας;</p><p class="legal-callout">Η λίστα δεν αποτελεί νομική γνωμοδότηση ούτε αποδεικνύει συμμόρφωση. Ζήτησε τοπική συμβουλή πριν διαχειριστείς χρήματα ή δημοσιεύσεις πραγματικές προσφορές.</p></article>
+          </div>
+          <p class="risk-notice" data-i18n="noYieldPromise">Δεν υποσχόμαστε απόδοση 7–9% ή οποιαδήποτε άλλη απόδοση. Τα πραγματικά αποτελέσματα μπορεί να περιλαμβάνουν καθυστέρηση ή απώλεια κεφαλαίου.</p>
+        </section>
+
+        <section class="page-view hidden" id="tax-view">
+          <div class="welcome-row">
+            <div><p class="eyebrow" data-i18n="greekTax">ΕΛΛΗΝΙΚΗ ΦΟΡΟΛΟΓΙΚΗ ΣΥΝΟΨΗ</p><h1 data-i18n="taxTitle">Ετήσια κατάσταση συναλλαγών.</h1><p class="subheading" data-i18n="taxSubtitle">Κατέβασε προσχέδιο για έλεγχο από λογιστή.</p></div>
+            <div class="tax-actions"><label class="field-label" id="tax-year-label" for="tax-year" data-i18n="taxYear">Φορολογικό έτος</label><select class="text-input" id="tax-year" aria-labelledby="tax-year-label"></select><button class="button button-dark" id="export-tax-statement" type="button" data-i18n="downloadDraft">Λήψη προσχεδίου CSV <span aria-hidden="true">↓</span></button></div>
+          </div>
+          <p class="risk-notice"><strong data-i18n="taxNotFiled">Δεν είναι δήλωση Taxisnet και δεν υποβάλλεται αυτόματα.</strong> <span data-i18n="taxDisclaimer">Το CSV είναι βοηθητική σύνοψη, όχι φορολογικό παραστατικό. Χρειάζεται έλεγχος από Έλληνα λογιστή και επιβεβαίωση κανόνων ανά προϊόν και φορολογικό έτος.</span></p>
+          <div class="tax-grid">
+            <article class="summary-card tax-card"><div class="card-heading" data-i18n="stampDuty">ΤΕΛΗ / ΨΗΦΙΑΚΟ ΤΕΛΟΣ ΣΥΝΑΛΛΑΓΗΣ</div><strong data-i18n="stampPending">Δεν υπολογίζεται ακόμη</strong><p data-i18n="stampExplain">Η εφαρμογή δεν εφαρμόζει αυτόματα χαρτόσημο ή άλλο τέλος χωρίς επικυρωμένη νομική και φορολογική ταξινόμηση.</p></article>
+            <article class="summary-card tax-card"><div class="card-heading" data-i18n="statementStatus">ΚΑΤΑΣΤΑΣΗ ΚΑΤΑΣΤΑΣΗΣ</div><strong data-i18n="draftStatus">Προσχέδιο · προς έλεγχο</strong><p data-i18n="statementExplain">Περιλαμβάνει τις δοκιμαστικές συνεισφορές που έγιναν σε αυτή την περιήγηση.</p></article>
+          </div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="taxRows">ΣΥΝΟΨΗ ΣΥΝΑΛΛΑΓΩΝ</p><h2 data-i18n="annualActivity">Ετήσια δραστηριότητα</h2></div></div>
+          <div id="tax-statement-summary" class="request-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <dialog class="modal" id="fund-modal" aria-labelledby="fund-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow">ΣΤΗΡΙΞΕ ΜΙΑ ΕΛΛΗΝΙΚΗ ΕΠΙΧΕΙΡΗΣΗ</p><h2 id="fund-title">Επένδυσε σε αυτό το αίτημα</h2>
+      <p class="modal-copy" id="fund-description"></p>
+      <form id="fund-form">
+        <label class="field-label" for="fund-amount">Κεφάλαιο που επενδύεις</label>
+        <div class="input-wrap"><span>€</span><input id="fund-amount" name="amount" type="number" min="25" step="25" value="100" required></div>
+        <p class="field-help fee-breakdown" id="fund-fee-breakdown" aria-live="polite"></p>
+        <p class="field-help" id="fund-limit"></p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal>Ακύρωση</button><button class="button button-dark" type="submit">Επιβεβαίωση δοκιμαστικής επένδυσης <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="modal-disclaimer">Πρόκειται για προσομοίωση. Δεν μεταφέρονται χρήματα.</p>
+    </dialog>
+
+    <dialog class="modal story-modal" id="story-modal" aria-labelledby="story-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow" data-i18n="sampleStory">ΕΝΔΕΙΚΤΙΚΗ ΙΣΤΟΡΙΑ · ΔΟΚΙΜΑΣΤΙΚΟ ΠΕΡΙΕΧΟΜΕΝΟ</p>
+      <span class="sector-badge" id="story-sector"></span>
+      <h2 id="story-title"></h2>
+      <p class="story-label" data-i18n="whyFunding">Γιατί αναζητείται χρηματοδότηση</p>
+      <p class="modal-copy" id="story-purpose"></p>
+      <div class="story-update"><p class="story-label" data-i18n="projectUpdate">Ενημέρωση έργου</p><p id="story-update"></p><small data-i18n="sampleUpdate">Ενδεικτική ενημέρωση · όχι πραγματικό νέο επιχείρησης.</small></div>
+      <p class="modal-disclaimer" id="story-demo-note"></p>
+    </dialog>
+
+    <dialog class="modal" id="equity-modal" aria-labelledby="equity-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow">ΔΟΚΙΜΑΣΤΙΚΟΣ ΓΥΡΟΣ ΣΥΜΜΕΤΟΧΗΣ</p><h2 id="equity-title">Επίλεξε ποσό επένδυσης</h2>
+      <p class="modal-copy" id="equity-description"></p>
+      <form id="equity-form">
+        <label class="field-label" for="equity-amount">Η επένδυσή σου</label>
+        <div class="input-wrap"><span>€</span><input id="equity-amount" name="amount" type="number" min="25" step="25" required></div>
+        <div class="ownership-estimate" id="ownership-estimate" aria-live="polite"></div>
+        <p class="field-help" id="equity-limit"></p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal>Ακύρωση</button><button class="button button-dark" type="submit">Προσομοίωση επένδυσης <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="modal-disclaimer">Το δοκιμαστικό ποσοστό δεν αποτελεί μετοχή, τίτλο ή δεσμευτικό δικαίωμα ιδιοκτησίας.</p>
+    </dialog>
+
+    <dialog class="modal" id="offer-modal" aria-labelledby="offer-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow">ΠΡΟΤΕΙΝΕ ΤΟΥΣ ΟΡΟΥΣ ΣΟΥ</p><h2 id="offer-title">Κάνε προσφορά χρηματοδότησης</h2>
+      <p class="modal-copy" id="offer-description"></p>
+      <form id="offer-form">
+        <label class="field-label" for="offer-amount">Ποσό προσφοράς</label>
+        <div class="input-wrap"><span>€</span><input id="offer-amount" name="amount" type="number" min="25" step="25" required></div>
+        <label class="field-label" for="offer-rate">Προτεινόμενο επιτόκιο</label>
+        <div class="input-wrap"><input id="offer-rate" name="rate" type="number" min="1" max="35" step="0.1" required><span>% ετησίως</span></div>
+        <p class="field-help fee-breakdown" id="offer-fee-breakdown" aria-live="polite"></p>
+        <p class="field-help" id="offer-limit"></p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal>Ακύρωση</button><button class="button button-dark" type="submit">Αποστολή δοκιμαστικής προσφοράς <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="modal-disclaimer">Η επιχείρηση μπορεί να αποδεχτεί ή να αντιπροτείνει ποσό και επιτόκιο. Δοκιμαστική ροή — χωρίς μεταφορά χρημάτων ή πραγματικούς όρους δανείου.</p>
+    </dialog>
+
+    <dialog class="modal" id="counter-modal" aria-labelledby="counter-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow">ΑΠΑΝΤΗΣΗ ΕΠΙΧΕΙΡΗΣΗΣ · ΔΟΚΙΜΑΣΤΙΚΗ ΡΟΗ</p><h2 id="counter-title">Όροι αντιπροσφοράς</h2>
+      <p class="modal-copy" id="counter-description"></p>
+      <form id="counter-form">
+        <label class="field-label" for="counter-amount">Ποσό που ζητάς</label>
+        <div class="input-wrap"><span>€</span><input id="counter-amount" name="amount" type="number" min="25" step="25" required></div>
+        <label class="field-label" for="counter-rate">Επιτόκιο που ζητάς</label>
+        <div class="input-wrap"><input id="counter-rate" name="rate" type="number" min="1" max="35" step="0.1" required><span>% ετησίως</span></div>
+        <p class="field-help" id="counter-limit"></p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal>Ακύρωση</button><button class="button button-dark" type="submit">Αποστολή αντιπροσφοράς <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="modal-disclaimer">Οι αντιπροσφορές είναι δοκιμαστικές. Απαιτείται αποδοχή από τον επενδυτή και δεν προκύπτει πραγματική σύμβαση.</p>
+    </dialog>
+
+    <dialog class="modal" id="request-modal" aria-labelledby="request-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow" data-i18n="requestEyebrow">ΑΙΤΗΜΑ ΧΡΗΜΑΤΟΔΟΤΗΣΗΣ STARTUP</p><h2 id="request-title" data-i18n="requestTitle">Πες μας για την επιχείρησή σου.</h2>
+      <p class="modal-copy" data-i18n="requestIntro">Δοκιμαστικό αίτημα ελληνικής επιχείρησης €10.000–€50.000.</p>
+      <form id="request-form">
+        <label class="field-label" for="borrower-name" data-i18n="contactName">Όνομα υπευθύνου</label><input class="text-input" id="borrower-name" name="name" placeholder="π.χ. Μαρία Παπαδοπούλου" required>
+        <label class="field-label" for="startup-name" data-i18n="startupName">Επωνυμία επιχείρησης</label><input class="text-input" id="startup-name" name="company" placeholder="π.χ. Φούρνος Θεσσαλονίκης" required maxlength="80">
+        <label class="field-label" for="request-sector" data-i18n="requestSector">Κλάδος επιχείρησης</label><select class="text-input" id="request-sector" name="sector" required><option value="real-estate" data-i18n="sectorRealEstateOption">Ακίνητα &amp; τουρισμός</option><option value="green" data-i18n="sectorGreenOption">Πράσινη ενέργεια &amp; γεωργία</option><option value="local" data-i18n="sectorLocalOption">Τοπικό εμπόριο &amp; καινοτομία</option><option value="tech" selected data-i18n="sectorTechOption">Τεχνολογία &amp; νεοφυείς επιχειρήσεις</option></select>
+        <label class="field-label" for="request-purpose" data-i18n="fundingPurpose">Σκοπός χρηματοδότησης</label><input class="text-input" id="request-purpose" name="purpose" placeholder="π.χ. Δεύτερο κατάστημα / φωτοβολταϊκά" required maxlength="120">
+        <div class="form-row">
+          <div><label class="field-label" for="request-amount" data-i18n="fundingTarget">Ποσό (€10.000–€50.000)</label><div class="input-wrap"><span>€</span><input id="request-amount" name="amount" type="number" min="10000" max="50000" step="500" value="25000" required></div></div>
+          <div><label class="field-label" for="request-term" data-i18n="repaymentTerm">Διάρκεια αποπληρωμής</label><select class="text-input" id="request-term" name="term"><option value="12">12 μήνες</option><option value="24" selected>24 μήνες</option><option value="36">36 μήνες</option><option value="48">48 μήνες</option></select></div>
+        </div>
+        <p class="field-help fee-breakdown" id="borrower-fee-estimate" aria-live="polite"></p>
+        <label class="field-label" for="request-assets" data-i18n="backingAssetsLabel">Δηλωμένα περιουσιακά στοιχεία για κάλυψη</label><div class="input-wrap"><span>€</span><input id="request-assets" name="assets" type="number" min="0" step="500" value="15000" required></div>
+        <p class="field-help" id="asset-requirement" aria-live="polite"></p>
+        <label class="field-label" for="request-asset-type" data-i18n="assetTypeLabel">Τύπος περιουσιακού στοιχείου</label><input class="text-input" id="request-asset-type" name="assetType" data-i18n-placeholder="assetTypePlaceholder" placeholder="π.χ. εξοπλισμός, αποθέματα, ακίνητο" required maxlength="100">
+        <label class="field-label" for="request-rate" data-i18n="requestedRate">Επιτόκιο που ζητάς</label><div class="input-wrap"><input id="request-rate" name="rate" type="number" min="1" max="35" step="0.1" value="8" required><span>% ετησίως</span></div>
+        <p class="modal-disclaimer" data-i18n="backingDisclaimer">Τα δηλωμένα περιουσιακά στοιχεία δεν είναι αυτομάτως εξασφάλιση. Απαιτούνται αποτίμηση, επαλήθευση κυριότητας, νομική σύσταση/τελειοποίηση και έλεγχος εκτελεστότητας.</p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal data-i18n="cancel">Ακύρωση</button><button class="button button-dark" type="submit" data-i18n="createDemoRequest">Δημιουργία δοκιμαστικού αιτήματος <span aria-hidden="true">→</span></button></div>
+      </form>
+      <p class="modal-disclaimer" data-i18n="requestDemoWarning">Δοκιμαστικό αίτημα — δεν είναι πραγματική αίτηση δανείου.</p>
+    </dialog>
+
+    <dialog class="modal" id="sale-modal" aria-labelledby="sale-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow" data-i18n="saleEyebrow">ΠΩΛΗΣΗ ΜΕΡΙΔΙΟΥ · ΔΟΚΙΜΑΣΤΙΚΗ ΡΟΗ</p><h2 id="sale-title" data-i18n="saleTitle">Βάλε μέρος του δανείου προς πώληση</h2>
+      <p class="modal-copy" id="sale-description"></p>
+      <form id="sale-form">
+        <label class="field-label" for="sale-amount" data-i18n="saleAmount">Ποσό κεφαλαίου</label><div class="input-wrap"><span>€</span><input id="sale-amount" name="amount" type="number" min="25" step="25" required></div>
+        <label class="field-label" for="sale-price" data-i18n="salePrice">Τιμή ως ποσοστό κεφαλαίου</label><div class="input-wrap"><input id="sale-price" name="price" type="number" min="50" max="120" step="1" value="95" required><span>%</span></div>
+        <p class="field-help" id="sale-price-estimate" aria-live="polite"></p>
+        <div class="modal-actions"><button class="button button-light" type="button" data-close-modal data-i18n="cancel">Ακύρωση</button><button class="button button-dark" type="submit" data-i18n="publishSale">Δημοσίευση αγγελίας</button></div>
+      </form>
+      <p class="modal-disclaimer" data-i18n="saleDisclaimer">Η αγγελία δεν εγγυάται αγοραστή ή πώληση. Η τιμή μπορεί να είναι χαμηλότερη από το κεφάλαιο.</p>
+    </dialog>
+
+    <dialog class="modal" id="support-modal" aria-labelledby="support-title">
+      <form method="dialog" class="modal-dismiss"><button class="modal-close" aria-label="Κλείσιμο">×</button></form>
+      <p class="eyebrow" data-i18n="supportEyebrow">ΕΞΥΠΗΡΕΤΗΣΗ ΠΕΛΑΤΩΝ</p><h2 id="support-title" data-i18n="supportTitle">Πώς μπορούμε να βοηθήσουμε;</h2>
+      <p class="modal-copy" data-i18n="supportDemo">Ελληνική υποστήριξη πρωτοτύπου · αυτοεξυπηρέτηση demo, όχι ζωντανή εξυπηρέτηση.</p>
+      <div class="support-faq">
+        <details><summary data-i18n="supportQ1">Μπορώ να καλύψω μόνο μέρος ενός αιτήματος;</summary><p data-i18n="supportA1">Ναι. Κάθε επενδυτής μπορεί να συνεισφέρει μέρος του στόχου. Η ένδειξη προόδου δείχνει πόσο απομένει.</p></details>
+        <details><summary data-i18n="supportQ2">Υποβάλλεται η φορολογική κατάσταση στο Taxisnet;</summary><p data-i18n="supportA2">Όχι. Παράγεται μόνο δοκιμαστικό αρχείο CSV για έλεγχο από λογιστή. Δεν υπάρχει σύνδεση ή υποβολή στο Taxisnet.</p></details>
+        <details><summary data-i18n="supportQ3">Υπολογίζονται αυτόματα χαρτόσημο ή τέλη;</summary><p data-i18n="supportA3">Όχι ακόμη. Απαιτείται επιβεβαίωση από Έλληνα φοροτεχνικό για τη νομική μορφή, το είδος συναλλαγής και τους ισχύοντες κανόνες.</p></details>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
